@@ -1,0 +1,16 @@
+[Unit]
+Description=DOBBY backend personnel
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/dobby/nexus-bridge-v02
+ExecStart=%h/dobby/nexus-bridge-v02/.venv/bin/python %h/dobby/nexus-bridge-v02/web_server.py --origin https://HOSTNAME.TAILNET.ts.net:8443
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target

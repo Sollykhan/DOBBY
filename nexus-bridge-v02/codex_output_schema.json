@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {"type": "string", "enum": ["complete"]},
+    "findings": {
+      "type": "array",
+      "items": {"type": "string", "enum": ["documentation", "configuration", "tests", "other"]},
+      "maxItems": 4
+    }
+  },
+  "required": ["status", "findings"],
+  "additionalProperties": false
+}
